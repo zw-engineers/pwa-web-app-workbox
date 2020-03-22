@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workbox Service Worker Example</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Our Users</h1>
+
+    <ul id="people">
+
+    </ul>
+
+    <script async src="js/app.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js')
+					.then(() => console.log('Service Worker is registered'))
+					.catch(err => console.log(`Service Worker failed to register: ${err}`));
+			});
+        }
+    </script>
+</body>
+</html>
